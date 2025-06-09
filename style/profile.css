@@ -1,0 +1,207 @@
+body {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+main.profile-page-main {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 150px); 
+}
+
+.profile-container {
+    background-color: var(--color-navbar-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 800px;
+    box-shadow: var(--shadow);
+}
+
+.profile-header {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-header .fa-shield-alt {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.profile-header h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+}
+
+.profile-section {
+    padding: 2.5rem 3rem;
+}
+
+.profile-section h3 {
+    font-family: var(--font-display);
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+}
+
+.profile-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--color-navbar-bg), rgba(255, 255, 255, 0.1), var(--color-navbar-bg));
+}
+
+/* Info Akun */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.info-item label {
+    display: block;
+    color: rgba(247, 255, 247, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.info-item p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+/* form */
+.profile-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(247, 255, 247, 0.2);
+    color: var(--color-secondary);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+}
+
+.form-group input::placeholder {
+    color: rgba(247, 255, 247, 0.4);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Tombol */
+.btn { 
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+    text-decoration: none;
+}
+
+.profile-form .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-dark);
+    justify-self: start;
+    margin-top: 0.5rem;
+}
+.profile-form .btn-primary:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 230, 109, 0.2);
+}
+
+.danger-zone {
+    background-color: rgba(229, 57, 53, 0.05);
+    border-top: 1px solid rgba(229, 57, 53, 0.2);
+    margin: -1px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding: 2.5rem 3rem;
+}
+
+.danger-zone h3 {
+    font-family: var(--font-display);
+    color: var(--color-danger);
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.danger-zone p {
+    color:rgb(220, 25, 45);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.danger-zone .btn-danger {
+    background-color: var(--color-danger);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+}
+
+.danger-zone .btn-danger:hover {
+    background-color: #c62828;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    main.profile-page-main {
+        padding: 2rem 1rem;
+    }
+    .profile-container {
+        padding: 0; 
+    }
+    .profile-header {
+        padding: 2rem 1.5rem;
+    }
+    .profile-section {
+        padding: 2rem 1.5rem;
+    }
+    .profile-container h2 {
+        font-size: 2.2rem;
+    }
+    .profile-section h3 {
+        font-size: 1.4rem;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-header h2 {
+        font-size: 2rem;
+    }
+}

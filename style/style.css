@@ -1,0 +1,551 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+    --font-primary: 'Roboto', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    
+    --color-primary: #1a535c;
+    --color-navbar-bg: #153c44;
+    --color-secondary: #f7fff7;
+    --color-accent: #ffe66d;
+    --color-text-dark: #2c3e50;
+
+    --container-width: 1280px;
+    --border-radius: 12px;
+    --shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 6px 20px rgba(0, 0, 0, 0.2);
+    --transition-speed: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    background-color: var(--color-navbar-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+}
+
+.header-container {
+    max-width: var(--container-width);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.brand-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-area img {
+    border-radius: var(--border-radius);
+}
+
+.header-logo {
+    height: 45px;
+    width: auto;
+}
+
+header h1 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--color-secondary);
+}
+
+.user-info {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.user-info li {
+    font-size: 0.95rem;
+    color: rgba(247, 255, 247, 0.7);
+}
+
+.user-info li a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 50px;
+    transition: all var(--transition-speed);
+}
+
+.user-info li a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-navbar-bg);
+}
+
+main {
+    max-width: var(--container-width);
+    margin: auto;
+    padding: 3rem 2rem;
+}
+
+#produk h2 {
+    font-family: var(--font-display);
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(247, 255, 247, 0.7);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+#produk form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+#produk input[type="text"] {
+    padding: 0.9rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(247, 255, 247, 0.2);
+    color: var(--color-secondary);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    width: 100%;
+    max-width: 450px;
+    transition: all var(--transition-speed);
+}
+
+#produk input[type="text"]::placeholder {
+    color: rgba(247, 255, 247, 0.5);
+}
+
+#produk input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-icon-find {
+    background-color: var(--color-accent);
+    color: var(--color-text-dark);
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    padding: 0;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-speed);
+}
+
+.btn-icon-find:hover {
+    background-color: #ffd94b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* === Kartu Produk === */
+.produk-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2.5rem;
+}
+
+
+
+.produk-card {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-speed);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 320px; /* Tinggi tetap untuk konsistensi */
+    position: relative;
+}
+
+.produk-card:hover {
+    transform: translateY(-5px); /* Kurangi efek hover */
+    box-shadow: var(--shadow);
+}
+
+/* Perbaikan gambar produk */
+.produk-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.produk-card .image-container {
+    width: 100%;
+    height: 250px; /* Tinggi tetap untuk gambar */
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0; /* Jangan menyusut */
+}
+
+.produk-card:hover img {
+    transform: scale(1.03); /* Kurangi efek zoom */
+}
+
+.produk-card .card-content {
+    padding: 1.2rem !important;
+    text-align: center !important; /* Ubah dari left ke center */
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1;
+    gap: 0.8rem !important; /* Kurangi gap agar lebih rapat */
+    background: #ffffff !important;
+    position: relative !important;
+    z-index: 2 !important;
+    justify-content: flex-start !important; /* Pastikan konten dimulai dari atas */
+}
+
+/* Perbaikan nama produk */
+.produk-card h3 {
+    font-family: var(--font-primary);
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    margin: 0 !important; /* Hilangkan margin */
+    color: var(--color-text-dark) !important;
+    line-height: 1.3;
+    text-align: center !important; /* Pastikan teks di tengah */
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Batasi maksimal 2 baris */
+    -webkit-box-orient: vertical;
+}
+
+.produk-card .harga {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: var(--color-primary) !important;
+    margin-bottom: 1rem !important;
+    margin-top: auto !important;
+    letter-spacing: 0.5px;
+    display: block !important; /* Pastikan harga muncul */
+    visibility: visible !important; /* Pastikan terlihat */
+    opacity: 1 !important; /* Pastikan tidak transparan */
+}
+
+/* Perbaikan harga produk */
+.produk-card .harga,
+.produk-card .price,
+.produk-card .harga-produk {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: var(--color-primary) !important;
+    margin: 0 !important; /* Hilangkan margin */
+    text-align: center !important; /* Pastikan harga di tengah */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    letter-spacing: 0.5px;
+}
+
+.produk-card .btn-detail {
+    text-decoration: none;
+    background-color: #f0f0f0;
+    color: var(--color-text-dark);
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    margin-top: auto;
+    transition: all var(--transition-speed);
+    display: block; /* Pastikan tombol muncul */
+}
+
+.btn-detail {
+    text-decoration: none;
+    background-color: #f0f0f0;
+    color: var(--color-text-dark);
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    margin-top: auto;
+    transition: all var(--transition-speed);
+}
+
+.produk-card .btn-detail:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text-dark);
+}
+
+/* Jika struktur HTML tidak menggunakan image-container */
+.produk-card > img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+    flex-shrink: 0;
+}
+
+.produk-card {
+    border: 2px solid red !important;
+}
+.produk-card .card-content {
+    border: 2px solid blue !important;
+}
+.produk-card .harga {
+    border: 2px solid green !important;
+    background: yellow !important;
+}
+
+.chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-accent);
+    color: var(--color-text-dark);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-speed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: #ffffff;
+    width: 320px;
+    max-width: 90vw;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+#chat-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bubble {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 85%;
+    line-height: 1.4;
+    color: var(--color-text-dark);
+}
+
+.bubble.user {
+    background: #e9ecef;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.bubble.ai {
+    background: var(--color-accent);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+}
+
+#user-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+button.send-btn {
+    padding: 10px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+button.send-btn:hover {
+    background-color: #2c3e50;
+}
+
+/*footer*/
+footer {
+    background-color: var(--color-navbar-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(247, 255, 247, 0.7);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+/* Dropdown */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-menu-trigger {
+    background: none;
+    border: 1px solid rgba(247, 255, 247, 0.5);
+    color: var(--color-secondary);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-primary);
+    transition: all var(--transition-speed);
+}
+
+.user-menu-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-secondary);
+}
+
+.user-menu-trigger .fa-caret-down {
+    transition: transform var(--transition-speed);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    background-color: #2a2a2a;
+    min-width: 200px;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content a {
+    color: var(--color-secondary);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    transition: background-color var(--transition-speed);
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-primary);
+}
+
+.user-menu.active .dropdown-content {
+    display: block;
+}
+
+.user-menu.active .user-menu-trigger .fa-caret-down {
+    transform: rotate(180deg);
+}
+
+/* responsif */
+/* Perbaikan untuk responsif */
+@media (max-width: 768px) {
+    .produk-card h3 {
+        font-size: 1.1rem !important;
+        height: 2.6rem;
+    }
+    
+    .produk-card .harga,
+    .produk-card .price,
+    .produk-card .harga-produk {
+        font-size: 1.2rem !important;
+    }
+    
+    .produk-card .card-content {
+        padding: 1.3rem !important;
+    }
+}
+
+/* Override CSS lama yang mungkin konflik */
+.produk-card .card-content {
+    padding: 1.2rem !important;
+    text-align: left;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1;
+    gap: 0;
+    background: #ffffff !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Pastikan tidak ada CSS yang menimpa */
+.produk-container .produk-card .harga {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--color-primary) !important;
+    font-weight: 700 !important;
+}
